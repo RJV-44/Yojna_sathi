@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Renu Sharma",
+    "email": "renu@example.com",
+    "phone": "9876543210",
+    "dob": "1998-05-14",
+    "gender": "Female",
+    "state": "Rajasthan",
+    "district": "Jaipur",
+    "area_type": "Urban",
+    "pincode": "302001",
+    "category": "OBC",
+    "occupation": "Student",
+    "income": "Below ₹1,00,000",
+    "specially_abled": "No",
+    "interest": "Education",
+    "whatsapp_alerts": "yes",
+    "password_hash": "$2y$10$wEkgzJp3F9zU5J8mQ/qTquY50v3WlQf0C1lUaWwZk8p1oH5e8wPqy",
+    "plain_demo_pwd": "password123",
+    "created_at": "2026-08-10 10:30:00"
+  }
+]
