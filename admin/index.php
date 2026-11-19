@@ -26,12 +26,21 @@
                     <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password" required>
                 </div>
 
+                <div style="background: rgba(15,118,110,0.08); border: 1px dashed var(--accent); border-radius: 10px; padding: 10px 14px; margin-bottom: 18px; font-size: 0.84rem; display: flex; justify-content: space-between; align-items: center;">
+                    <span><strong>Demo Admin:</strong> admin@yojnasathi.in</span>
+                    <button type="button" class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.78rem;" onclick="document.querySelector('#email').value='admin@yojnasathi.in'; document.querySelector('#password').value='admin123';">Auto Fill</button>
+                </div>
+
                 <div class="checkbox-row">
-                    <label><input type="checkbox" name="remember"> Remember me</label>
+                    <label><input type="checkbox" name="remember" checked> Remember me</label>
                     <a href="#" class="text-link">Forgot password?</a>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In to Dashboard &rarr;</button>
+
+                <p style="text-align: center; margin-top: 22px; font-size: 0.88rem; color: var(--muted);">
+                    <a href="../index.php" class="text-link">&larr; Return to Citizen Website</a>
+                </p>
             </form>
         </div>
     </div>

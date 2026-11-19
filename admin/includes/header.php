@@ -10,7 +10,7 @@ $adminPath = strpos($_SERVER['SCRIPT_NAME'], '/admin/') !== false
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yojna Sathi Admin</title>
+    <title>Yojna Sathi Admin Portal</title>
     <link rel="stylesheet" href="<?= htmlspecialchars($adminPath, ENT_QUOTES, 'UTF-8') ?>assets/css/admin.css">
 </head>
 
@@ -18,10 +18,13 @@ $adminPath = strpos($_SERVER['SCRIPT_NAME'], '/admin/') !== false
     <div class="app-shell">
         <aside class="sidebar">
             <div class="sidebar-brand">
-                <div class="sidebar-brand-mark">YS</div>
-                <div>
-                    <h2>Yojna Sathi</h2>
-                </div>
+                <a href="<?= $adminPath ?>dashboard.php" style="display: flex; align-items: center; gap: 12px; color: inherit;">
+                    <div class="sidebar-brand-mark">YS</div>
+                    <div>
+                        <h2>Yojna Sathi</h2>
+                        <small style="color: #94a3b8; font-size: 0.75rem;">Admin Portal</small>
+                    </div>
+                </a>
             </div>
 
             <ul class="sidebar-nav">
@@ -35,13 +38,22 @@ $adminPath = strpos($_SERVER['SCRIPT_NAME'], '/admin/') !== false
                 <li><a href="<?= $adminPath ?>content/homepage.php" class="<?= $activePage === 'content' ? 'active' : '' ?>">Content</a></li>
                 <li><a href="<?= $adminPath ?>reports/reports.php" class="<?= $activePage === 'reports' ? 'active' : '' ?>">Reports</a></li>
                 <li><a href="<?= $adminPath ?>settings/profile.php" class="<?= $activePage === 'settings' ? 'active' : '' ?>">Settings</a></li>
-                <li><a href="<?= $adminPath ?>logout.php" class="<?= $activePage === 'logout' ? 'active' : '' ?>">Logout</a></li>
+                <li style="border-top: 1px solid rgba(255,255,255,0.12); margin-top: 14px; padding-top: 8px;">
+                    <a href="<?= $adminPath ?>../index.php" target="_blank" style="color: #38bdf8;">&larr; View Citizen Site</a>
+                </li>
+                <li><a href="<?= $adminPath ?>logout.php" class="<?= $activePage === 'logout' ? 'active' : '' ?>" style="color: #f87171;">Logout</a></li>
             </ul>
         </aside>
 
         <main class="main-panel">
             <div class="topbar">
-                <h1>Admin Panel</h1>
-                <div class="user-pill">Admin User</div>
+                <div style="display: flex; align-items: center; gap: 14px;">
+                    <button type="button" id="adminSidebarToggle" class="btn btn-secondary" style="padding: 8px 12px; display: none;" aria-label="Toggle navigation">&#9776; Menu</button>
+                    <h1>Admin Control Panel</h1>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <a href="<?= $adminPath ?>../index.php" class="btn btn-secondary" style="font-size: 0.85rem; padding: 8px 14px;" target="_blank">View Site &#8599;</a>
+                    <div class="user-pill">&#128100; Super Admin</div>
+                </div>
             </div>
             <div class="page-content">

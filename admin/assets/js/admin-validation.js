@@ -89,10 +89,17 @@
         const val = input.value !== undefined ? input.value.trim() : '';
         const id = (input.id || input.name || '').toLowerCase();
         const type = input.type || '';
-        const isRequired = input.hasAttribute('required') || true; // Most admin form fields are required
+        const isRequired = input.hasAttribute('required');
 
-        // Check empty for text/date/select/textarea
-        if (val === '') {
+        // If optional and empty, clear errors and return true
+        if (!isRequired && val === '') {
+            clearError(input);
+            input.classList.remove('js-valid');
+            return true;
+        }
+
+        // Check empty for required fields
+        if (isRequired && val === '') {
             const label = getFieldLabel(input);
             showError(input, `${label} is required.`);
             return false;
@@ -291,6 +298,22 @@
     document.addEventListener('DOMContentLoaded', () => {
         // Setup slug generator if present
         setupSlugAutoGeneration();
+
+        // Mobile Sidebar Toggle
+        const sidebarToggle = document.querySelector('#adminSidebarToggle');
+        const sidebar = document.querySelector('.sidebar');
+        if (sidebarToggle && sidebar) {
+            sidebarToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                sidebar.classList.toggle('mobile-open');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (sidebar.classList.contains('mobile-open') && !sidebar.contains(e.target) && e.target !== sidebarToggle) {
+                    sidebar.classList.remove('mobile-open');
+                }
+            });
+        }
 
         // 1. Admin Login Form (admin/index.php)
         const loginForm = document.querySelector('.admin-auth form');
